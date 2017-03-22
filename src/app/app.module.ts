@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
-import { AngularFireModule } from 'angularfire2';
+import { AngularFireModule,  AuthProviders, AuthMethods } from 'angularfire2';
 import { FirebaseService } from './services/firebase.service'
 
 import { AppComponent } from './app.component';
@@ -27,7 +27,12 @@ const appRoutes: Routes = [
   { path:'', component:HomeComponent},
   { path:'listings', component:ListingsComponent},
   { path:'add-listing', component:AddListingComponent}
-]
+];
+
+const firebaseAuthConfig = {
+  provider: AuthProviders.Google,
+  method: AuthMethods.Popup
+};
 
 @NgModule({
   declarations: [
@@ -44,7 +49,7 @@ const appRoutes: Routes = [
     FormsModule,
     HttpModule,
     RouterModule.forRoot(appRoutes),
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(firebaseConfig, firebaseAuthConfig)
   ],
   providers: [FirebaseService],
   bootstrap: [AppComponent]
