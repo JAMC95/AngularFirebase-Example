@@ -15,7 +15,7 @@ import { AddListingComponent } from './components/add-listing/add-listing.compon
 import { EditListingComponent } from './components/edit-listing/edit-listing.component';
 
 export const firebaseConfig = {
-   apiKey: "AIzaSyBm0sr5Xm1ZAX7y1GQYqTTdItbX2RCcKV0",
+    apiKey: "AIzaSyBm0sr5Xm1ZAX7y1GQYqTTdItbX2RCcKV0",
     authDomain: "proplist-fa9e3.firebaseapp.com",
     databaseURL: "https://proplist-fa9e3.firebaseio.com",
     storageBucket: "proplist-fa9e3.appspot.com",
