@@ -32,9 +32,20 @@ export class EditListingComponent implements OnInit {
       this.city = listing.city;
       this.bedrooms = listing.bedrooms;
       this.price = listing.price;
-      this.image = listing.image;
       this.type = listing.type;
-    })
+    });
   }
+  onEditSubmit () {
+    let listing = {
+      title: this.title,
+      owner: this.owner,
+      city: this.city,
+      bedrooms: this.bedrooms,
+      price: this.price,
+      type: this.type
+    }
+    this.firebaseService.updateListing(this.id, listing);
 
+    this.router.navigate(['/listings']);
+  }
 }

@@ -8,11 +8,11 @@ export class FirebaseService {
   folder: any;
 
   constructor(private af: AngularFire) { 
-    this.folder = 'listingimages'
+    this.folder = 'listingimages';
+     this.listings = this.af.database.list('/listings') as FirebaseListObservable<Listing[]>;
   }
 
   getListings () {
-    this.listings = this.af.database.list('/listings') as FirebaseListObservable<Listing[]>
     return this.listings;
   }
 
@@ -34,8 +34,12 @@ export class FirebaseService {
     });
    }
   }
-}
 
+   updateListing (id, listing) {
+    return this.listings.update(id, listing);
+  }
+}
+ 
 interface Listing {
   $key?:string;
   title?:string;
