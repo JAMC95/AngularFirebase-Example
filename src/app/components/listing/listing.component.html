@@ -16,6 +16,6 @@
       </ul>
     </div>
     <a [routerLink]="['/edit-listing/'+listing.$key]" class="btn btn-default">Edit</a>
-    <a href="#" class="btn btn-danger">Delete</a>
+    <a (click)="onDeleteClick()" class="btn btn-danger">Delete</a>
   </div>
 </div>
